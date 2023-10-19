@@ -55,7 +55,7 @@ double Algorithms::get2LinesAngle(QPoint &p1, QPoint &p2, QPoint &p3, QPoint &p4
     return acos(dot/(nu*nv));
 }
 
-int Algorithms::getPointAndPolygonPosition(QPoint &q,QPolygon &pol)
+int Algorithms::getPointAndPolygonPositionWinding(QPoint &q,QPolygon &pol)
 {
     //Analyze point and polygon position (winding number algorithm)
     double omega_sum = 0;
