@@ -17,12 +17,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     algorithms.cpp \
+    data.cpp \
     draw.cpp \
     main.cpp \
     mainform.cpp
 
 HEADERS += \
     algorithms.h \
+    data.h \
     draw.h \
     mainform.h
 

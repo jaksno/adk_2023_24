@@ -56,3 +56,15 @@ void MainForm::on_pushButton_2_clicked()
     else
         ui->label_2->setText("Outside");
 }
+
+void MainForm::on_pushButton_data_clicked()
+{
+    // IMPORTS POLYGON/S SPAGHETTI MODEL DATA
+
+    // open file dialog (return file-path)
+
+    // read data (apply data-reading algorithm)
+
+    // draw
+}
+
