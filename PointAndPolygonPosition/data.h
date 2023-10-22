@@ -12,7 +12,7 @@ class Data
 public:
     Data();
 
-    vector<QPolygon> txt_read(string &filename);
+    vector<QPolygon> readPolygonsFromFile(QString &filePath);
 };
 
 #endif // DATA_H

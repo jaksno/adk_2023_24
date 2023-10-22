@@ -1,6 +1,11 @@
 #include "mainform.h"
 #include "ui_mainform.h"
 #include "algorithms.h"
+#include "data.h"
+#include <QFileDialog>
+#include <iostream>
+
+using namespace std;
 
 MainForm::MainForm(QWidget *parent)
     : QWidget(parent)
@@ -61,10 +66,11 @@ void MainForm::on_pushButton_data_clicked()
 {
     // IMPORTS POLYGON/S SPAGHETTI MODEL DATA
 
-    // open file dialog (return file-path)
-
-    // read data (apply data-reading algorithm)
-
-    // draw
+    Data read_data;
+    // open file dialog (return QString file-path)
+    QString data_filepath(QFileDialog::getOpenFileName(this, tr("Import data"), "../", tr("TXT Files (*.txt)")));
+    // read data
+    vector<QPolygon> polygons = read_data.readPolygonsFromFile(data_filepath);
+    // draw polygons
 }
 
