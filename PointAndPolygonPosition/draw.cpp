@@ -49,15 +49,18 @@ void Draw::paintEvent(QPaintEvent *event)
     painter.drawPolygon(pol);
 
     //Draw point
-    int r = 5;
+    int r = 3;
     painter.drawEllipse(q.x()-r, q.y()-r, 2*r, 2*r);
 
     //End draw
     painter.end();
 }
 
-void Draw::setSource()
-{
-    // Add point q / polygon vertex
-    add_point = !add_point;
-}
+
+
+
+
+
+
+
+

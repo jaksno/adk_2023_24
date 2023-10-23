@@ -6,7 +6,6 @@
 #include <QTextStream>
 #include <QPoint>
 #include <QPolygon>
-#include <iostream>
 
 using namespace std;
 
@@ -15,63 +14,44 @@ Data::Data()
 
 }
 
-vector<QPolygon> Data::readPolygonsFromFile(QString &filePath){
-    // read polygon/s data from txt file
 
-    // format description
-    //1 polygon_id
-    //10 10 vertex num. 1
-    //10 20 vertex num. 2
-    //20 20 vertex num. 3
-    //20 10 vertex num. 4
-    //2 another polygon
-    //20 20
-    //20 45
-    //45 20
-    //...
+vector<QPolygon> Data::readPolygonsFromFile(QString &filePath) {
+    vector<QPolygon> polygons; // create a vector to store the polygons
 
-    // create a vector to store the polygons
-    vector<QPolygon> polygons;
-    // open the specified file
-    QFile file(filePath);
-    // create a QTextStream to read from the file
-    QTextStream in(&file);
+    QFile file(filePath); // open the specified file
 
-    // run while QTextStream hasn't reached the end
-    while(!in.atEnd()){
-        QString line = in.readLine().trimmed(); // Read a line and remove spaces
-        if (line.isEmpty()) {
-            continue; // Skip empty lines
-        }
+    file.open(QIODevice::ReadOnly | QIODevice::Text); // open file
 
-        bool ok;
-        int id = line.toInt(&ok); // if conversion of id(string->int) is succesfull, sets value ok to true
+    QTextStream in(&file); // create a QTextStream to read from the file
 
-        if(ok){
-            QPolygon polygon; // new polygon object to store vertices
+    while (!in.atEnd()) {
 
-            while(true){
-                line = in.readLine().trimmed();
+        QPolygon polygon; // create a polygon object to store the vertices
+        qDebug() << "new polygon";
+        while (!in.atEnd()) {
+            QString line = in.readLine().trimmed(); // read line
 
-                if(line.isEmpty() || line.toInt(&ok)){
-                    break;
-                } // end of the polygon or start of a new polygon
-
-                QStringList coords = line.split(' '); // split line into parts using spaces as delimiter
-
-                if(coords.size() == 2){
-                    double x = coords[0].toDouble();
-                    double y = coords[1].toDouble();
-                    polygon.append(QPoint(x, y));
-                } // appends x and y coordinate (as a new vertex) to polygon
+            if (line.isEmpty()) {
+                break; // end of the polygon
             }
 
-            polygons.push_back(polygon); // add new polygon to polygons
+            QStringList parts = line.split(' '); // split the line into parts using spaces as delimiters
+
+            if (parts.size() >= 2) {
+                int x = parts[0].toInt(); // x coordinate
+                int y = parts[1].toInt(); // y coordinate
+                polygon.append(QPoint(x, y)); // add the vertex to the polygon
+
+            }
 
         }
+        qDebug() << polygon;
+        polygons.push_back(polygon); // add the completed polygon to the vector
 
     }
 
-    file.close(); // close the file
+    file.close(); // close file
+    qDebug() << polygons;
     return polygons; // return the vector of polygons
 }
+

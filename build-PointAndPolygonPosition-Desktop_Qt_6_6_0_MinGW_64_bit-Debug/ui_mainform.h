@@ -18,7 +18,7 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
-#include "draw.h"
+#include <draw.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -32,8 +32,6 @@ public:
     QComboBox *comboBox;
     QPushButton *pushButton_data;
     QSpacerItem *verticalSpacer;
-    QPushButton *pushButton;
-    QSpacerItem *verticalSpacer_2;
     QPushButton *pushButton_2;
     QSpacerItem *verticalSpacer_4;
     QLabel *label_2;
@@ -80,15 +78,6 @@ public:
 
         verticalLayout->addItem(verticalSpacer);
 
-        pushButton = new QPushButton(MainForm);
-        pushButton->setObjectName("pushButton");
-
-        verticalLayout->addWidget(pushButton);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_2);
-
         pushButton_2 = new QPushButton(MainForm);
         pushButton_2->setObjectName("pushButton_2");
 
@@ -129,7 +118,6 @@ public:
         comboBox->setItemText(1, QCoreApplication::translate("MainForm", "Ray crossing", nullptr));
 
         pushButton_data->setText(QCoreApplication::translate("MainForm", "Import data", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainForm", "Point / Polygon", nullptr));
         pushButton_2->setText(QCoreApplication::translate("MainForm", "Analyze position", nullptr));
         label_2->setText(QString());
         pushButton_3->setText(QCoreApplication::translate("MainForm", "Clear", nullptr));

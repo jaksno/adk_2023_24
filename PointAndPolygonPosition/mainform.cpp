@@ -29,11 +29,6 @@ void MainForm::on_pushButton_3_clicked()
     repaint();
 }
 
-void MainForm::on_pushButton_clicked()
-{
-    //Change source: add point q / polygon vertex
-    ui->Canvas->setSource();
-}
 
 void MainForm::on_pushButton_2_clicked()
 {
@@ -71,6 +66,8 @@ void MainForm::on_pushButton_data_clicked()
     QString data_filepath(QFileDialog::getOpenFileName(this, tr("Import data"), "../", tr("TXT Files (*.txt)")));
     // read data
     vector<QPolygon> polygons = read_data.readPolygonsFromFile(data_filepath);
+
     // draw polygons
+
 }
 
