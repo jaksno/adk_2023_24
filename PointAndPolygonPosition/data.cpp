@@ -14,20 +14,19 @@ Data::Data()
 
 }
 
-
 vector<QPolygon> Data::readPolygonsFromFile(QString &filePath) {
     vector<QPolygon> polygons; // create a vector to store the polygons
 
     QFile file(filePath); // open the specified file
 
-    file.open(QIODevice::ReadOnly | QIODevice::Text); // open file
+    file.open(QIODevice::ReadOnly | QIODevice::Text); // open file - does not work without it.. IDK
 
     QTextStream in(&file); // create a QTextStream to read from the file
 
     while (!in.atEnd()) {
-
         QPolygon polygon; // create a polygon object to store the vertices
         qDebug() << "new polygon";
+
         while (!in.atEnd()) {
             QString line = in.readLine().trimmed(); // read line
 

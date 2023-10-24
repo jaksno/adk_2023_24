@@ -61,12 +61,12 @@ void MainForm::on_pushButton_data_clicked()
 {
     // IMPORTS POLYGON/S SPAGHETTI MODEL DATA
 
+    // create Data object
     Data read_data;
-    // open file dialog (return QString file-path)
+    // open file dialog
     QString data_filepath(QFileDialog::getOpenFileName(this, tr("Import data"), "../", tr("TXT Files (*.txt)")));
     // read data
     vector<QPolygon> polygons = read_data.readPolygonsFromFile(data_filepath);
-
     // draw polygons
 
 }
