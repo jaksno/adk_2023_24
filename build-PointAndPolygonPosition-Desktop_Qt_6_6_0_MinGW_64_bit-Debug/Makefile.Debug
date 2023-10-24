@@ -1417,7 +1417,11 @@ debug/data.o: ../PointAndPolygonPosition/data.cpp ../PointAndPolygonPosition/dat
 		C:/Qt/6.6.0/mingw_64/include/QtGui/qundogroup.h \
 		C:/Qt/6.6.0/mingw_64/include/QtGui/qundostack.h \
 		C:/Qt/6.6.0/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.6.0/mingw_64/include/QtGui/qwindowsmimeconverter.h
+		C:/Qt/6.6.0/mingw_64/include/QtGui/qwindowsmimeconverter.h \
+		C:/Qt/6.6.0/mingw_64/include/QtCore/QFile \
+		C:/Qt/6.6.0/mingw_64/include/QtCore/QTextStream \
+		C:/Qt/6.6.0/mingw_64/include/QtCore/QPoint \
+		C:/Qt/6.6.0/mingw_64/include/QtGui/QPolygon
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\data.o ..\PointAndPolygonPosition\data.cpp
 
 debug/draw.o: ../PointAndPolygonPosition/draw.cpp ../PointAndPolygonPosition/draw.h \
@@ -2396,7 +2400,11 @@ debug/mainform.o: ../PointAndPolygonPosition/mainform.cpp ../PointAndPolygonPosi
 		C:/Qt/6.6.0/mingw_64/include/QtGui/qundogroup.h \
 		C:/Qt/6.6.0/mingw_64/include/QtGui/qundostack.h \
 		C:/Qt/6.6.0/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.6.0/mingw_64/include/QtGui/qwindowsmimeconverter.h
+		C:/Qt/6.6.0/mingw_64/include/QtGui/qwindowsmimeconverter.h \
+		../PointAndPolygonPosition/data.h \
+		C:/Qt/6.6.0/mingw_64/include/QtWidgets/QFileDialog \
+		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qfiledialog.h \
+		C:/Qt/6.6.0/mingw_64/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainform.o ..\PointAndPolygonPosition\mainform.cpp
 
 debug/moc_draw.o: debug/moc_draw.cpp 

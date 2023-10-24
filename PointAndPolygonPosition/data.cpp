@@ -19,7 +19,7 @@ vector<QPolygon> Data::readPolygonsFromFile(QString &filePath) {
 
     QFile file(filePath); // open the specified file
 
-    file.open(QIODevice::ReadOnly | QIODevice::Text); // open file - does not work without it.. IDK
+    file.open(QIODevice::ReadOnly); // open file - does not work without it.. IDK
 
     QTextStream in(&file); // create a QTextStream to read from the file
 
