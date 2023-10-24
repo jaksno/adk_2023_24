@@ -45,19 +45,25 @@ void Draw::paintEvent(QPaintEvent *event)
     //Start draw
     painter.begin(this);
 
-    //Draw polygon
-    painter.drawPolygon(pol);
-
     //Draw point
     int r = 3;
     painter.drawEllipse(q.x()-r, q.y()-r, 2*r, 2*r);
+
+    // Draw polygons
+    for (int i = 0; i < polygons.size(); i++) painter.drawPolygon(polygons[i]);
 
     //End draw
     painter.end();
 }
 
 
-
+void Draw::drawPolygons(std::vector<QPolygon> &poly){
+    // polygons to draw
+    qDebug() << "function drawPolygons called";
+    polygons.clear();
+    for (QPolygon pol : poly) polygons.push_back(pol);
+    repaint();
+}
 
 
 

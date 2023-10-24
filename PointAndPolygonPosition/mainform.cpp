@@ -59,7 +59,7 @@ void MainForm::on_pushButton_2_clicked()
 
 void MainForm::on_pushButton_data_clicked()
 {
-    // IMPORTS POLYGON/S SPAGHETTI MODEL DATA
+    // IMPORTS POLYGON/S DATA
 
     // create Data object
     Data read_data;
@@ -68,6 +68,7 @@ void MainForm::on_pushButton_data_clicked()
     // read data
     vector<QPolygon> polygons = read_data.readPolygonsFromFile(data_filepath);
     // draw polygons
+    ui->Canvas->drawPolygons(polygons);
 
 }
 

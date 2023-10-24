@@ -5,6 +5,7 @@
 
 
 
+
 class Draw : public QWidget
 {
     Q_OBJECT
@@ -13,6 +14,7 @@ private:
     bool add_point;
     QPoint q;
     QPolygon pol;
+    std::vector<QPolygon> polygons;
 
 
 public:
@@ -22,6 +24,7 @@ public:
     void clear(){pol.clear();}
     QPoint getQ(){return q;}
     QPolygon getPol(){return pol;}
+    void drawPolygons(std::vector<QPolygon> &polygons);
 
 
 
