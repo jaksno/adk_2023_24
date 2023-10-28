@@ -33,7 +33,7 @@ void Draw::mousePressEvent(QMouseEvent *event)
     }
 
     //Repaint
-    repaint(); 
+    repaint();
 
 }
 

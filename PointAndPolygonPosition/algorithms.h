@@ -10,7 +10,8 @@ public:
 
     int getPointAndLinePosition(QPoint &a, QPoint &p1, QPoint &p2);
     double get2LinesAngle(QPoint &p1, QPoint &p2, QPoint &p3, QPoint &p4);
-    int getPointAndPolygonPositionWinding(QPoint &q,QPolygon &pol);
+    int getPointAndPolygonPositionWinding(QPoint &q,QPolygon &pol); //method Winding Number
+    int getPointAndPolygonPositionRayCrossing(QPoint &q,QPolygon &pol); //method Ray Crossing
     int processAll(std::vector<QPolygon> &polygons, QPoint &point, int &algorithm_index);
 
 };

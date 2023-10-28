@@ -25,6 +25,7 @@ void MainForm::on_pushButton_3_clicked()
 {
     //Clear content
     ui->Canvas->clear();
+    ui->label_2->clear();
 
     //Repaint
     repaint();
@@ -47,8 +48,15 @@ void MainForm::on_pushButton_2_clicked()
     Algorithms a;
     int pols_to_highlight = a.processAll(polygons_data, q, index);
 
-
-
+    //Set result in label
+    if (pols_to_highlight == 1 && index == 0)
+        ui->label_2->setText(" Winding number\n Point is INSIDE");
+    if (pols_to_highlight == 0 && index == 0)
+        ui->label_2->setText(" Winding number\n Point is OUTSIDE");
+    if (pols_to_highlight == 1 && index == 1)
+        ui->label_2->setText(" Ray - Crossing\n Point is INSIDE");
+    if (pols_to_highlight == 0 && index == 1)
+        ui->label_2->setText(" Ray - Crossing\n Point is OUTSIDE");
 }
 
 void MainForm::on_pushButton_data_clicked()

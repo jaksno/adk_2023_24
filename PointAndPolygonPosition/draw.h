@@ -21,7 +21,7 @@ public:
     explicit Draw(QWidget *parent = nullptr);
     void mousePressEvent(QMouseEvent *event);
     void paintEvent(QPaintEvent *event);
-    void clear(){pol.clear();}
+    void clear(){polygons.clear();}
     QPoint getQ(){return q;}
     QPolygon getPol(){return pol;}
     void drawPolygons(std::vector<QPolygon> &polygons);

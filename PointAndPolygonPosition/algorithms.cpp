@@ -1,6 +1,7 @@
 #include "algorithms.h"
 
 #include <cmath>
+#include <iostream>
 
 Algorithms::Algorithms()
 {
@@ -90,38 +91,70 @@ int Algorithms::getPointAndPolygonPositionWinding(QPoint &q,QPolygon &pol)
     return 1;
 }
 
+int Algorithms::getPointAndPolygonPositionRayCrossing(QPoint &q, QPolygon &pol) //Ray Crossing
+{
+    // Count of polygons in dataset
+    int n = pol.size();
+
+    // Inicialization of k = 0
+    int k = 0;
+
+    /* Repeat for points
+     * for x coordinates */
+    double xii = pol[0].x() - q.x();
+
+    // for y coordinates
+    double yii = pol[0].y() - q.y();
+
+    // Process for all points
+    for (int i = 1; i <= n; i++)
+    {
+        // Set a difference of coordinates
+        double xi = pol[i%n].x() - q.x();
+        double yi = pol[i%n].y() - q.y();
+
+        /* xi = xi
+         * xii = x(i-1) */
+
+        // Search a good segment
+        if ((yi > 0) && (yii <=0) || (yii >0) && (yi <=0))
+        {
+
+            // Search intersection
+            double xm = (xi*yii - xii*yi)/(yi - yii);
+
+            // Point is in the right half plane
+            if (xm > 0)
+                k++;
+        }
+
+        // Assign values
+        xii = xi;
+        yii = yi;
+    }
+
+    // Return amount of intersections
+    return k%2;
+}
+
 
 int Algorithms::processAll(std::vector<QPolygon> &polygons, QPoint &point, int &algorithm_index){
-    // method processes all polygons
-    // returns "id"(order in vector) of polygon, which includes point OR {-1} if such polygon was not found
+    // method processes all polygons, if find a result value 1 from some method, return a value 1
 
     int res;
-    int id = -1; // id of polygon to be highlited
 
     for (int i = 0; i < int(polygons.size()); i++){
 
-        if (algorithm_index==0){ // Winding
-
+        if (algorithm_index==0){ // Winding method
             res = getPointAndPolygonPositionWinding(point, polygons[i]);
-
-            qDebug()<<res;
-
-            if (res == 1) {
-                id = i;
-                qDebug()<<id;
-                return id;
-
-                // polygon found
-            }
+            if (res == 1) {return 1;}
         }
-        else { // Ray - crossing method
 
-            // do the same here as below
-
-        }
+        if (algorithm_index==1){ // Ray - crossing method
+            res = getPointAndPolygonPositionRayCrossing(point, polygons[i]);
+            if (res == 1) {return 1;}
     }
-    qDebug()<<id;
-    return id;
+    }
 }
 
 
