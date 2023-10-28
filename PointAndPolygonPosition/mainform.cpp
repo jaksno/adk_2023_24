@@ -5,6 +5,7 @@
 #include <QFileDialog>
 #include <iostream>
 
+
 using namespace std;
 
 MainForm::MainForm(QWidget *parent)
@@ -37,24 +38,17 @@ void MainForm::on_pushButton_2_clicked()
     //Get data
     QPoint q = ui->Canvas->getQ();
     QPolygon pol = ui->Canvas->getPol();
+    vector<QPolygon> polygons_data = ui->Canvas->getPolData();
 
     //Which method will be used
     int index =  ui->comboBox->currentIndex();
 
     //Run analysis
     Algorithms a;
-    int res;
-
-    if (index == 0)
-        res = a.getPointAndPolygonPositionWinding(q, pol);
+    int pols_to_highlight = a.processAll(polygons_data, q, index);
 
 
-    //Print result
-    if (res == 1)
-        ui->label_2->setText("Inside");
 
-    else
-        ui->label_2->setText("Outside");
 }
 
 void MainForm::on_pushButton_data_clicked()

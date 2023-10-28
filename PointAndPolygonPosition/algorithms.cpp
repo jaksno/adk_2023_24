@@ -91,3 +91,37 @@ int Algorithms::getPointAndPolygonPositionWinding(QPoint &q,QPolygon &pol)
 }
 
 
+int Algorithms::processAll(std::vector<QPolygon> &polygons, QPoint &point, int &algorithm_index){
+    // method processes all polygons
+    // returns "id"(order in vector) of polygon, which includes point OR {-1} if such polygon was not found
+
+    int res;
+    int id = -1; // id of polygon to be highlited
+
+    for (int i = 0; i < int(polygons.size()); i++){
+
+        if (algorithm_index==0){ // Winding
+
+            res = getPointAndPolygonPositionWinding(point, polygons[i]);
+
+            qDebug()<<res;
+
+            if (res == 1) {
+                id = i;
+                qDebug()<<id;
+                return id;
+
+                // polygon found
+            }
+        }
+        else { // Ray - crossing method
+
+            // do the same here as below
+
+        }
+    }
+    qDebug()<<id;
+    return id;
+}
+
+

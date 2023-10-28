@@ -25,6 +25,7 @@ public:
     QPoint getQ(){return q;}
     QPolygon getPol(){return pol;}
     void drawPolygons(std::vector<QPolygon> &polygons);
+    std::vector<QPolygon> getPolData(){return polygons;};
 
 
 
