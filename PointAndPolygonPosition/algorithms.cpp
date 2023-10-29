@@ -139,7 +139,7 @@ int Algorithms::getPointAndPolygonPositionRayCrossing(QPoint &q, QPolygon &pol) 
 
 
 int Algorithms::processAll(std::vector<QPolygon> &polygons, QPoint &point, int &algorithm_index){
-    // method processes all polygons, if find a result value 1 from some method, return a value 1
+    // method processes all polygons, returns id if point is inside else -1
 
     int res;
 
@@ -147,14 +147,15 @@ int Algorithms::processAll(std::vector<QPolygon> &polygons, QPoint &point, int &
 
         if (algorithm_index==0){ // Winding method
             res = getPointAndPolygonPositionWinding(point, polygons[i]);
-            if (res == 1) {return 1;}
+            if (res == 1) {return i;}
         }
 
         if (algorithm_index==1){ // Ray - crossing method
             res = getPointAndPolygonPositionRayCrossing(point, polygons[i]);
-            if (res == 1) {return 1;}
+            if (res == 1) {return i;}
     }
     }
+    return -1;
 }
 
 

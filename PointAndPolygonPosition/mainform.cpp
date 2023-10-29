@@ -47,16 +47,31 @@ void MainForm::on_pushButton_2_clicked()
     //Run analysis
     Algorithms a;
     int pols_to_highlight = a.processAll(polygons_data, q, index);
+    qDebug()<< pols_to_highlight;
 
-    //Set result in label
-    if (pols_to_highlight == 1 && index == 0)
+
+    QPolygon pol_outof_screen; //Polygon out of screen extent
+    pol_outof_screen << QPoint(-1, -1) << QPoint(-1, -1) << QPoint(-1, -1);
+
+    //Set result in label & highlite polygon
+    if (pols_to_highlight >= 0 && index == 0){
         ui->label_2->setText(" Winding number\n Point is INSIDE");
-    if (pols_to_highlight == 0 && index == 0)
+        ui->Canvas->highlitePolygon(polygons_data[pols_to_highlight]);
+    }
+    if (pols_to_highlight == -1 && index == 0){
         ui->label_2->setText(" Winding number\n Point is OUTSIDE");
-    if (pols_to_highlight == 1 && index == 1)
+        ui->Canvas->highlitePolygon(pol_outof_screen);
+    }
+    if (pols_to_highlight >= 0 && index == 1){
         ui->label_2->setText(" Ray - Crossing\n Point is INSIDE");
-    if (pols_to_highlight == 0 && index == 1)
+        ui->Canvas->highlitePolygon(polygons_data[pols_to_highlight]);
+    }
+    if (pols_to_highlight == -1 && index == 1){
         ui->label_2->setText(" Ray - Crossing\n Point is OUTSIDE");
+        ui->Canvas->highlitePolygon(pol_outof_screen);
+    }
+
+
 }
 
 void MainForm::on_pushButton_data_clicked()

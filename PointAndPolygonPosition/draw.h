@@ -4,8 +4,6 @@
 #include <QWidget>
 
 
-
-
 class Draw : public QWidget
 {
     Q_OBJECT
@@ -15,7 +13,8 @@ private:
     QPoint q;
     QPolygon pol;
     std::vector<QPolygon> polygons;
-
+    int pol_con_point_id;
+    QPolygon highlite;
 
 public:
     explicit Draw(QWidget *parent = nullptr);
@@ -26,8 +25,8 @@ public:
     QPolygon getPol(){return pol;}
     void drawPolygons(std::vector<QPolygon> &polygons);
     std::vector<QPolygon> getPolData(){return polygons;};
-
-
+    void highlitePolygon(QPolygon &polygon_highlite);
+    void reset_brush();
 
 signals:
 

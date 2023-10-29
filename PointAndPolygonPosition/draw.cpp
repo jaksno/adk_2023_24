@@ -39,7 +39,7 @@ void Draw::mousePressEvent(QMouseEvent *event)
 
 void Draw::paintEvent(QPaintEvent *event)
 {
-    //Create new object
+    //Create new objects
     QPainter painter(this);
 
     //Start draw
@@ -50,7 +50,12 @@ void Draw::paintEvent(QPaintEvent *event)
     painter.drawEllipse(q.x()-r, q.y()-r, 2*r, 2*r);
 
     // Draw polygons
-    for (int i = 0; i < polygons.size(); i++) painter.drawPolygon(polygons[i]);
+    for (int i = 0; i < int(polygons.size()); i++) painter.drawPolygon(polygons[i]);
+
+    // Highlite polygon
+    QBrush brush(Qt::blue);
+    painter.setBrush(brush);
+    painter.drawPolygon(highlite);
 
     //End draw
     painter.end();
@@ -59,11 +64,19 @@ void Draw::paintEvent(QPaintEvent *event)
 
 void Draw::drawPolygons(std::vector<QPolygon> &poly){
     // polygons to draw
-    qDebug() << "function drawPolygons called";
     polygons.clear();
     for (QPolygon pol : poly) polygons.push_back(pol);
     repaint();
 }
+
+void Draw::highlitePolygon(QPolygon &polygon_highlite){
+    // polygon to highlite
+    highlite.clear();
+    highlite = polygon_highlite;
+    repaint();
+}
+
+
 
 
 
