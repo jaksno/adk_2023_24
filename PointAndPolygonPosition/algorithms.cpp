@@ -61,6 +61,7 @@ int Algorithms::getPointAndPolygonPositionWinding(QPoint &q,QPolygon &pol)
     //Analyze point and polygon position (winding number algorithm)
     double omega_sum = 0;
     double eps = 1.0e-10;
+    double pi = M_PI;
 
     //Size of polygon
     int n = pol.size();
@@ -75,7 +76,7 @@ int Algorithms::getPointAndPolygonPositionWinding(QPoint &q,QPolygon &pol)
         int pos = getPointAndLinePosition(q,pol[i],pol[(i+1)%n]);
 
         // Point on the edge of the polygon
-        if (pos == -1) return -1;
+        if (omega > pi-eps & omega < pi+eps) return -1; //  omega = pi
 
         //Point in the left half plane
         if (pos == 1)
