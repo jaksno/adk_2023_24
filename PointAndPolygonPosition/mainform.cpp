@@ -62,6 +62,10 @@ void MainForm::on_pushButton_2_clicked()
         ui->label_2->setText(" Winding number\n Point is OUTSIDE");
         ui->Canvas->highlitePolygon(pol_outof_screen);
     }
+    if (pols_to_highlight == -2 && index == 0){
+        ui->label_2->setText(" Winding number\n Point lies on the EDGE");
+        ui->Canvas->highlitePolygon(pol_outof_screen);
+    }
     if (pols_to_highlight >= 0 && index == 1){
         ui->label_2->setText(" Ray - Crossing\n Point is INSIDE");
         ui->Canvas->highlitePolygon(polygons_data[pols_to_highlight]);

@@ -74,6 +74,9 @@ int Algorithms::getPointAndPolygonPositionWinding(QPoint &q,QPolygon &pol)
         //Analyze point and line position
         int pos = getPointAndLinePosition(q,pol[i],pol[(i+1)%n]);
 
+        // Point on the edge of the polygon
+        if (pos == -1) return -1;
+
         //Point in the left half plane
         if (pos == 1)
             omega_sum = omega_sum + omega;
@@ -89,6 +92,7 @@ int Algorithms::getPointAndPolygonPositionWinding(QPoint &q,QPolygon &pol)
 
     //Point inside
     return 1;
+
 }
 
 int Algorithms::getPointAndPolygonPositionRayCrossing(QPoint &q, QPolygon &pol) //Ray Crossing
@@ -147,15 +151,16 @@ int Algorithms::processAll(std::vector<QPolygon> &polygons, QPoint &point, int &
 
         if (algorithm_index==0){ // Winding method
             res = getPointAndPolygonPositionWinding(point, polygons[i]);
-            if (res == 1) {return i;}
+            if (res == 1) {return i;} // point is inside
+            if (res == -1) {return -2;} // point lies on the edge
         }
 
         if (algorithm_index==1){ // Ray - crossing method
             res = getPointAndPolygonPositionRayCrossing(point, polygons[i]);
-            if (res == 1) {return i;}
+            if (res == 1) {return i;} // point is inside
     }
     }
-    return -1;
+    return -1; // point is outside
 }
 
 
