@@ -74,7 +74,10 @@ void MainForm::on_pushButton_2_clicked()
         ui->label_2->setText(" Ray - Crossing\n Point is OUTSIDE");
         ui->Canvas->highlitePolygon(pol_outof_screen);
     }
-
+    if (pols_to_highlight == -2 && index == 1){
+        ui->label_2->setText(" Ray - Crossing\n Point lies on the EDGE");
+        ui->Canvas->highlitePolygon(pol_outof_screen);
+    }
 
 }
 

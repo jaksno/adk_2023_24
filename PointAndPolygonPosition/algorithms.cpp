@@ -98,6 +98,9 @@ int Algorithms::getPointAndPolygonPositionWinding(QPoint &q,QPolygon &pol)
 
 int Algorithms::getPointAndPolygonPositionRayCrossing(QPoint &q, QPolygon &pol) //Ray Crossing
 {
+    //Inicialization of eps
+    double eps = 1.0e-10;
+
     // Count of polygons in dataset
     int n = pol.size();
 
@@ -131,6 +134,9 @@ int Algorithms::getPointAndPolygonPositionRayCrossing(QPoint &q, QPolygon &pol) 
             // Point is in the right half plane
             if (xm > 0)
                 k++;
+            // Analyses of edge
+            if (abs(xm) < eps)
+                return -1;
         }
 
         // Assign values
@@ -159,6 +165,7 @@ int Algorithms::processAll(std::vector<QPolygon> &polygons, QPoint &point, int &
         if (algorithm_index==1){ // Ray - crossing method
             res = getPointAndPolygonPositionRayCrossing(point, polygons[i]);
             if (res == 1) {return i;} // point is inside
+            if (res == -1) {return -2;} // point lies on the edge
     }
     }
     return -1; // point is outside
