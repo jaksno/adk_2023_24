@@ -218,6 +218,112 @@ QPolygonF Algorithms::minAreaEnclosingRect(QPolygonF &b){
 }
 
 
+QPolygonF Algorithms::resRect(QPolygonF &rect, QPolygonF &b)
+{
+    // Resize area of rectangle
+
+    // Compute areas
+    double a_rect = area(rect);
+    double a_build = area(b);
+
+    // Compute ratio
+    double k = a_build/a_rect;
+
+    // Compute center of mass
+    double xt = (rect[0].x() + rect[1].x() + rect[2].x() + rect[3].x())/4;
+    double yt = (rect[0].y() + rect[1].y() + rect[2].y() + rect[3].y())/4;
+
+    // Compute vectors
+    double u1x = rect[0].x() - xt;
+    double u1y = rect[0].y() - yt;
+
+    double u2x = rect[1].x() - xt;
+    double u2y = rect[1].y() - yt;
+
+    double u3x = rect[2].x() - xt;
+    double u3y = rect[2].y() - yt;
+
+    double u4x = rect[3].x() - xt;
+    double u4y = rect[3].y() - yt;
+
+    // Compute new vertices
+    QPointF v1(xt + sqrt(k)*u1x, yt + sqrt(k)*u1y);
+    QPointF v2(xt + sqrt(k)*u2x, yt + sqrt(k)*u2y);
+    QPointF v3(xt + sqrt(k)*u3x, yt + sqrt(k)*u3y);
+    QPointF v4(xt + sqrt(k)*u4x, yt + sqrt(k)*u4y);
+
+    // Create new rectangle
+    QPolygonF new_rect;
+    new_rect.push_back(v1);
+    new_rect.push_back(v2);
+    new_rect.push_back(v3);
+    new_rect.push_back(v4);
+
+    return new_rect;
+}
+
+
+QPolygonF Algorithms::simplifyAreaEnclosingRect(QPolygonF &b)
+{
+    // Replace building with the minimum area enclosing rectangle
+    QPolygonF er = minAreaEnclosingRect(b);
+
+    // Resize rectangle
+    QPolygonF err = resRect(er, b);
+
+    return err;
+}
+
+QPolygonF Algorithms::simplifyWallAverage(QPolygonF &b)
+{
+    // Wall average simplification method
+    int n = b.size();
+    double r_aver = 0;
+
+    // Compute sigma
+    double sigma = atan2(b[1].y() - b[0].y(), b[1].x() - b[0].x());
+
+    // Rotate the Building
+    for(int i = 0; i < n; i++)
+    {
+        // Compute sigma i
+        double sigma_i = atan2(b[(i + 1)%n].y() - b[i].y(), b[(i + 1)%n].x() - b[i].x());
+
+        // Reduce sigma i
+        double delta_sigma = sigma_i - sigma;
+
+        // Correct sigma
+        if (delta_sigma < 0)
+            delta_sigma = delta_sigma + 2*M_PI;
+
+        // Compute the multiplayer
+        double k = round(2* delta_sigma / M_PI);
+
+        // Compute reminder
+        double r = delta_sigma - k*M_PI/2;
+
+        // Average reminder
+        r_aver += r;
+    }
+
+    // Average reminder
+    r_aver /= n;
+
+    // Rotation building
+    double sigma_aver = sigma + r_aver;
+
+    // Rotate building by - sigma
+    QPolygonF b_r = rotate(b, -sigma_aver);
+
+    // Compute min-max box
+    auto[b_area, b_rect] = minMaxBox(b_r);
+
+    // Rotate rectangle back
+    QPolygonF b_rect_r = rotate(b_rect, sigma_aver);
+
+    // Resize rectangle
+    return resRect(b_rect_r, b);
+}
 
 
 

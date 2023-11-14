@@ -33,8 +33,17 @@ void Draw::paintEvent(QPaintEvent *event)
     //Start draw
     painter.begin(this);
 
-    //Draw polygon
+    //Draw raw building
+    painter.setPen(Qt::black);
     painter.drawPolygon(b);
+
+    //Draw convex hull
+    painter.setPen(Qt::blue);
+    painter.drawPolygon(ch);
+
+    //Draw simplified building
+    painter.setPen(Qt::red);
+    painter.drawPolygon(bs);
 
     //End draw
     painter.end();

@@ -16,6 +16,9 @@ public:
     double area(QPolygonF &pol);
     std::tuple<double, QPolygonF> minMaxBox(QPolygonF &pol);
     QPolygonF minAreaEnclosingRect(QPolygonF &b);
+    QPolygonF resRect(QPolygonF &rect, QPolygonF &b);
+    QPolygonF simplifyAreaEnclosingRect(QPolygonF &b);
+    QPolygonF simplifyWallAverage(QPolygonF &b);
 
 
 };

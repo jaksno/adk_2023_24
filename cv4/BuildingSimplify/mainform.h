@@ -18,6 +18,10 @@ public:
 private slots:
     void on_actionOpen_triggered();
 
+    void on_actionMin_Area_Rectangle_triggered();
+
+    void on_actionWall_Average_triggered();
+
 private:
     Ui::MainForm *ui;
 };
