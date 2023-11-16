@@ -19,6 +19,7 @@ public:
     QPolygonF resRect(QPolygonF &rect, QPolygonF &b);
     QPolygonF simplifyAreaEnclosingRect(QPolygonF &b);
     QPolygonF simplifyWallAverage(QPolygonF &b);
+    QPolygonF simplifyLongestEdge(QPolygonF &b);
 
 
 };

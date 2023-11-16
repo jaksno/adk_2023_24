@@ -333,20 +333,41 @@ QPolygonF Algorithms::simplifyWallAverage(QPolygonF &b)
     return resRect(b_rect_r, b);
 }
 
+QPolygonF Algorithms::simplifyLongestEdge(QPolygonF &b)
+{
+    // Longest edge simplification method
+    double long_edge = 0;
+    int n = b.size();
+    double sigma = 0;
 
+    // Find the longest edge
+    for(int i = 0; i < n; i++ )
+    {
+        // Compute coordinate diff
+        double dx = b[(i+1)%n].x() - b[i].x();
+        double dy = b[(i+1)%n].y() - b[i].y();
 
+        // Compute edge length
+        long_edge_i = sqrt(dx * dx + dy * dy);
 
+        // Compare new edge
+        if(long_edge_i > long_edge)
+        {
+            long_edge = long_edge_i;
+            sigma = atan2(b[(i+1)%n].y() - b[i].y(), b[(i+1)%n].x() - b[i].x());
+        }
+    }
 
+    // Rotate building
+    QPolygonF b_r = rotate(b, -sigma);
 
+    // Compute min-max box
+    auto[b_area, b_rect] = minMaxBox(b_r);
 
+    // Rotate building back
+    QPolygonF b_rback = rotate(b_rect, sigma);
 
-
-
-
-
-
-
-
-
-
+    // Resize rectangle
+    return resRect(b_rback, b);
+}
 
