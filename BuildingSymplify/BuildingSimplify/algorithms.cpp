@@ -71,7 +71,8 @@ QPolygonF Algorithms::cHull(QPolygonF &b)
     ch.push_back(qy);
 
     //Create pjj
-    QPointF pjj (qx.x(),qy.y());
+    //QPointF pjj (qx.x(),qy.y());
+    QPointF pjj (0, qy.y());
 
     // pj inicialization
     QPointF pj = qy;
@@ -108,7 +109,6 @@ QPolygonF Algorithms::cHull(QPolygonF &b)
 
     return ch;
 }
-
 
 QPolygonF Algorithms::rotate(QPolygonF &pol, double sigma)
 {
@@ -258,7 +258,6 @@ QPolygonF Algorithms::resRect(QPolygonF &rect, QPolygonF &b)
     new_rect.push_back(v2);
     new_rect.push_back(v3);
     new_rect.push_back(v4);
-
     return new_rect;
 }
 

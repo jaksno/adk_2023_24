@@ -17,17 +17,11 @@ public:
 
 private slots:
     void on_actionOpen_triggered();
-
     void on_actionMin_Area_Rectangle_triggered();
-
     void on_actionWall_Average_triggered();
-
     void on_actionClear_All_triggered();
-
     void on_actionClear_results_triggered();
-
     void on_actionExit_triggered();
-
     void on_actionLongest_Edge_triggered();
 
 private:

@@ -2,29 +2,30 @@
 #define DRAW_H
 
 #include <QWidget>
+#include <vector>
 
 class Draw : public QWidget
 {
     Q_OBJECT
 
 private:
-    QPolygonF b;
-    QPolygonF ch;
-    QPolygonF bs;
+    std::vector<QPolygonF> b, ch, bs; // b - buildings; ch - convex hulls; bs - simplify buildings
 
 public:
     explicit Draw(QWidget *parent = nullptr);
-    void mousePressEvent(QMouseEvent *event);
     void paintEvent(QPaintEvent *event);
-    void clear(){b.clear();}
-    QPolygonF getBuilding(){return b;}
-    void setSimplifiedBuilding(QPolygonF &bs_){bs = bs_;}
+    void setSimplifiedBuilding(std::vector<QPolygonF> &bs_){bs = bs_;}
+    void setConvexBuilding(std::vector<QPolygonF> &ch_){ch = ch_;}
     void clearAll(){b.clear(); bs.clear(); ch.clear();}
     void clearRes(){bs.clear(); ch.clear();}
+    void drawPolygons(std::vector<QPolygonF> &polygons, double &x_t, double &y_t, double &x_m, double &y_m);
+    QPolygonF transPolygon(QPolygonF &polygon, double &x_t, double &y_t, double &x_m, double &y_m);
+    std::vector<QPolygonF> getBuilding(){return b;}
 
 signals:
 
 public slots:
+
 };
 
 #endif // DRAW_H

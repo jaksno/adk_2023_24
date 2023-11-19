@@ -21,14 +21,16 @@ SOURCES += \
     main.cpp \
     mainform.cpp \
     sortpointsbyx.cpp \
-    sortpointsbyy.cpp
+    sortpointsbyy.cpp \
+    wkt.cpp
 
 HEADERS += \
     algorithms.h \
     draw.h \
     mainform.h \
     sortpointsbyx.h \
-    sortpointsbyy.h
+    sortpointsbyy.h \
+    wkt.h
 
 FORMS += \
     mainform.ui
