@@ -307,7 +307,7 @@ QPolygonF Algorithms::simplifyWallAverage(QPolygonF &b)
         double r = delta_sigma - k*M_PI/2;
 
         // Compute edge length
-        double d = dx*dx + dy*dy;
+        double d = sqrt(dx*dx + dy*dy);
 
         // Weighted average reminder
         r_aver += d*r;
@@ -348,13 +348,13 @@ QPolygonF Algorithms::simplifyLongestEdge(QPolygonF &b)
         double dy = b[(i+1)%n].y() - b[i].y();
 
         // Compute edge length
-        long_edge_i = sqrt(dx * dx + dy * dy);
+        double long_edge_i = sqrt(dx * dx + dy * dy);
 
         // Compare new edge
         if(long_edge_i > long_edge)
         {
             long_edge = long_edge_i;
-            sigma = atan2(b[(i+1)%n].y() - b[i].y(), b[(i+1)%n].x() - b[i].x());
+            sigma = atan2(dy, dx);
         }
     }
 

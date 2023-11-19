@@ -43,6 +43,7 @@
     </property>
     <addaction name="actionMin_Area_Rectangle"/>
     <addaction name="actionWall_Average"/>
+    <addaction name="actionLongest_Edge"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -71,6 +72,7 @@
    <addaction name="separator"/>
    <addaction name="actionMin_Area_Rectangle"/>
    <addaction name="actionWall_Average"/>
+   <addaction name="actionLongest_Edge"/>
    <addaction name="separator"/>
    <addaction name="actionClear_results"/>
    <addaction name="actionClear_All"/>
@@ -141,6 +143,18 @@
    </property>
    <property name="text">
     <string>Clear All</string>
+   </property>
+  </action>
+  <action name="actionLongest_Edge">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/images/icons/longestedge.png</normaloff>:/images/icons/longestedge.png</iconset>
+   </property>
+   <property name="text">
+    <string>Longest Edge</string>
+   </property>
+   <property name="toolTip">
+    <string>Create Longest Edge Approximation</string>
    </property>
   </action>
  </widget>

@@ -78,3 +78,22 @@ void MainForm::on_actionExit_triggered()
     QApplication::quit();
 }
 
+
+void MainForm::on_actionLongest_Edge_triggered()
+{
+    //Simplify building using Longest Edge
+
+    //Get data
+    QPolygonF b = ui -> Canvas -> getBuilding();
+
+    //Simplify
+    Algorithms a;
+    QPolygonF bs = a.simplifyLongestEdge(b);
+
+    //Set data
+    ui->Canvas->setSimplifiedBuilding(bs);
+
+    //Repaint
+    repaint();
+}
+

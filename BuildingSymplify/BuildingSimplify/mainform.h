@@ -28,6 +28,8 @@ private slots:
 
     void on_actionExit_triggered();
 
+    void on_actionLongest_Edge_triggered();
+
 private:
     Ui::MainForm *ui;
 };
