@@ -1,0 +1,10 @@
+release/algorithms.o
+release/draw.o
+release/main.o
+release/mainform.o
+release/sortpointsbyx.o
+release/sortpointsbyy.o
+release/wkt.o
+release/qrc_icons.o
+release/moc_draw.o
+release/moc_mainform.o
