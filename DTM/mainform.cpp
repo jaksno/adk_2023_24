@@ -130,3 +130,26 @@ void MainForm::on_actionSettings_triggered()
        dz = s.getDz();
    }
 }
+
+void MainForm::on_actionExit_triggered()
+{
+   // Quit app
+   QApplication::quit();
+}
+
+
+void MainForm::on_actionClear_all_triggered()
+{
+   // Clear all
+   ui->Canvas->clearAll();
+   repaint();
+}
+
+
+void MainForm::on_actionClear_results_triggered()
+{
+   // Clear result
+   ui->Canvas->clearRes();
+   repaint();
+}
+

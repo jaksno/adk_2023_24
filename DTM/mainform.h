@@ -31,6 +31,12 @@ private slots:
 
     void on_actionSettings_triggered();
 
+    void on_actionExit_triggered();
+
+    void on_actionClear_all_triggered();
+
+    void on_actionClear_results_triggered();
+
 private:
     Ui::MainForm *ui;
 };

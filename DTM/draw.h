@@ -29,6 +29,8 @@ public:
     void setContourLines(const std::vector<Edge> &contour_lines_){contour_lines = contour_lines_;}
     void setTriangles(std::vector<Triangle> &triangles_){triangles = triangles_;}
     void setAnalysis(bool analysis_){analysis=analysis_;}
+    void clearAll(){points.clear(); dt.clear(); contour_lines.clear(); triangles.clear();}
+    void clearRes(){dt.clear(); contour_lines.clear(); triangles.clear();}
 
 
 signals:
