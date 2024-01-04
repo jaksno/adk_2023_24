@@ -1,0 +1,14 @@
+maer
+sidliste 3/44
+rodinne domy 2/80
+centrum 8/87
+
+wa
+sidliste 8/44
+rodinne domy 0/80
+centrum 8/87
+
+le
+sidliste 9/44
+rodinne domy 2/80
+centrum 10/87
