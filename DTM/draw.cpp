@@ -48,6 +48,10 @@ void Draw::paintEvent(QPaintEvent *event)
         pol.push_back(v3);
 
         int col = 0;
+        double r;
+        double g;
+        double b;
+        double c;
 
         // Compute slope
         if (analysis)
@@ -58,6 +62,8 @@ void Draw::paintEvent(QPaintEvent *event)
             //Convert slope to color
             double c = 255 / (M_PI);
             col = 255 - slope * c;
+            r = col; g = col; b = col;
+
         }
 
         // Compute Aspect
@@ -67,13 +73,65 @@ void Draw::paintEvent(QPaintEvent *event)
             double aspect = t.getAspect();
 
             //Convert slope to color
-            double c = 255 / (2*M_PI);
-            col = 255 - aspect * c;
+
+            if (aspect < M_PI/2){
+                c = 255 / (M_PI/2);
+
+                r = 255;
+                g = aspect * c;
+                b = 0;
+                qDebug() << 1;
+            }
+            else if ((M_PI/2 <= aspect) && (aspect < (3*M_PI)/4)){
+                c = 255 / (M_PI/4);
+
+                r = 3*255 - aspect * c;
+                g = 255;
+                b = 0;
+                qDebug() << 2;
+            }
+            else if (((3*M_PI)/4 <= aspect) && (aspect < M_PI)){
+                c = 255 / (M_PI/4);
+
+                r = 0;
+                g = 255;
+                b = aspect * c - 3*255;
+                qDebug() << 3;
+            }
+            else if ((M_PI <= aspect) && (aspect < (3*M_PI)/2)){
+                c = 255 / (M_PI/2);
+
+                r = 0;
+                g = aspect * c - 3*255;
+                b = 255;
+                qDebug() << 4;
+            }
+            else if (((3*M_PI)/2 <= aspect) && (aspect < (7*M_PI)/4)){
+                c = 255 / (M_PI/4);
+
+                r = aspect * c - 6*255;
+                g = 0;
+                b = 255;
+                qDebug() << 5;
+            }
+            else {
+                c = 255 / (M_PI/4);
+
+                r = 255;
+                g = 0;
+                b = aspect * c - 8*255;
+                qDebug() << 6;
+            }
+            qDebug() << aspect;
         }
 
+        qDebug() << std::abs(r);
+        qDebug() << std::abs(g);
+        qDebug() << std::abs(b);
 
         //Set color
-        QColor qt_col(col, col, col);
+        QColor qt_col(std::abs(r), std::abs(g), std::abs(b));
+        qDebug() << qt_col;
         painter.setPen(qt_col);
         painter.setBrush(qt_col);
 
