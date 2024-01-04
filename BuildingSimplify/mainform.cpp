@@ -45,8 +45,8 @@ void MainForm::on_actionOpen_triggered()
         double c_width = ui->Canvas->size().width();
         double x_corner = ui->Canvas->geometry().x();
         double y_corner = ui->Canvas->geometry().y();
-        double d_height = ymax - ymin;
-        double d_width = xmax - xmin;
+        double d_height = (ymax - ymin)+20;
+        double d_width = (xmax - xmin)+20;
         double x_m = d_width/c_width;
         double y_m = d_height/c_height;
         double x_t = xmin - x_corner;
