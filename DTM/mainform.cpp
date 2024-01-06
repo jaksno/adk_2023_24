@@ -1,7 +1,12 @@
 #include "mainform.h"
 #include "ui_mainform.h"
 #include "algorithms.h"
-
+#include "draw.h"
+#include "csvfile.h"
+#include <iostream>
+#include <QtGui>
+#include <QFileDialog>
+#include <QMessageBox>
 
 MainForm::MainForm(QWidget *parent)
     : QMainWindow(parent)
@@ -23,6 +28,9 @@ MainForm::~MainForm()
 
 void MainForm::on_actionCreate_DTM_triggered()
 {
+    // Clear result
+    ui->Canvas->clearRes();
+
     //Create Delaunay triangulation
     std::vector <QPointF3D> points = ui->Canvas->getPoints();
 
@@ -65,6 +73,9 @@ void MainForm::on_actionContour_lines_triggered()
 
 void MainForm::on_actionAnalyze_slope_triggered()
 {
+    //Clear contour lines
+    ui -> Canvas -> clearContour();
+
     //Analyze slope
     std::vector <Edge> dt = ui ->Canvas->getDT();
 
@@ -93,6 +104,9 @@ void MainForm::on_actionAnalyze_slope_triggered()
 
 void MainForm::on_actionAnalyze_aspect_triggered()
 {
+    //Clear contour lines
+    ui -> Canvas -> clearContour();
+
     //Analyze aspect
     std::vector <Edge> dt = ui ->Canvas->getDT();
 
@@ -151,5 +165,64 @@ void MainForm::on_actionClear_results_triggered()
    // Clear result
    ui->Canvas->clearRes();
    repaint();
+}
+
+
+void MainForm::on_actionOpen_triggered()
+{
+
+   //Create Minmax box coors for our data
+   double xmin =  10.e12;
+   double xmax = -10.e12;
+   double ymin =  10.e12;
+   double ymax = -10.e12;
+
+   //Choose data
+   QString path(QFileDialog::getOpenFileName(this, tr("Open point cloud"), "../", tr("CSV Files (*.csv)")));
+
+   //Convert to string path
+   std::string filename = path.toStdString();
+
+   if (filename.length() > 0)
+   {
+       // Clear all
+       ui->Canvas->clearAll();
+
+       // Read the chosen file
+       std::vector<QPointF3D> points = csv::getPointsFromFile(filename, xmin, xmax, ymin, ymax);
+
+       // Get sizes
+       int canvas_width = ui->Canvas->size().width();
+       int canvas_height = ui->Canvas->size().height();
+       double data_width = xmax - xmin;
+       double data_height = ymax - ymin;
+       double x_ratio = canvas_width/data_width;
+       double y_ratio = canvas_height/data_height;
+
+       // Get scale
+       double scale;
+       if (x_ratio > y_ratio)
+           scale = y_ratio;
+       else
+           scale = x_ratio;
+
+       // Coordinates of datasets and canvas
+       int x_left_canvas = ui->Canvas->geometry().x();
+       int y_left_canvas = ui->Canvas->geometry().y();
+       int x_dataset = ui->Canvas->x();
+       int y_dataset = ui->Canvas->y();
+       int center_canvas_width = x_left_canvas + (canvas_width/2);
+       int center_canvas_height = y_left_canvas + (canvas_height/2);
+       int center_dataset_x = x_dataset + (data_width/2);
+       int center_dataset_y = y_dataset + (canvas_height/2);
+       double x_trans = xmin - x_left_canvas;
+       double y_trans = ymin - y_left_canvas;
+
+       // Set
+       ui->Canvas->setScale(scale);
+       ui->Canvas->setOffsets(x_dataset, y_dataset);
+       ui->Canvas->setTrans(x_trans, y_trans);
+       ui->Canvas->drawPoints(points);
+   }
 }
 

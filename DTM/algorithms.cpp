@@ -390,8 +390,22 @@ double Algorithms::computeAspect(const QPointF3D &v1, const QPointF3D &v2, const
     return aspect;
 }
 
+std::vector<QPointF3D> Algorithms::transformPoints(std::vector<QPointF3D> &points3d, double &x_t, double &y_t, double &scale, int &x_d, int &y_d)
+{
+    // Transform points from csv file
+    std::vector<QPointF3D> trans_points;
 
+    for (QPointF3D p : points3d)
+    {
+            // Trans
+            double dx = (p.x()-x_t-x_d)*(scale*0.9);
+            double dy = (p.y()-y_t-y_d)*(scale*0.9);
+            double x = dx + x_d;
+            double y = dy + y_d;
 
-
+            trans_points.push_back(QPointF3D(x, y, p.getZ()));
+    }
+    return trans_points;
+}
 
 

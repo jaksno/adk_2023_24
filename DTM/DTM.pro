@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     algorithms.cpp \
+    csvfile.cpp \
     draw.cpp \
     edge.cpp \
     main.cpp \
@@ -28,6 +29,7 @@ SOURCES += \
 
 HEADERS += \
     algorithms.h \
+    csvfile.h \
     draw.h \
     edge.h \
     mainform.h \

@@ -1,27 +1,16 @@
 #include "draw.h"
+#include "mainform.h"
+#include "ui_mainform.h"
+#include "algorithms.h"
+
 
 #include <cstdlib>
 #include <QtGui>
+#include <set>
 
 Draw::Draw(QWidget *parent) : QWidget(parent)
 {
     analysis = false;
-}
-
-void Draw::mousePressEvent(QMouseEvent *event)
-{
-    //Mouse coordinates
-    int x = event->pos().x();
-    int y = event->pos().y();
-
-    //Create new point
-    QPointF3D p(x, y, rand() % 1000);
-
-    //Add to the polygon
-    points.push_back(p);
-
-    //Repaint
-    repaint(); 
 }
 
 
@@ -60,7 +49,7 @@ void Draw::paintEvent(QPaintEvent *event)
             double slope = t.getSlope();
 
             //Convert slope to color
-            double c = 255 / (M_PI);
+            double c = 255 * (M_PI);
             col = 255 - slope * c;
             r = col; g = col; b = col;
 
@@ -140,10 +129,12 @@ void Draw::paintEvent(QPaintEvent *event)
     }
 
     //Draw points
-    int r = 5;
+    int r = 1;
     for(QPointF3D point : points)
     {
         //Draw point
+        QColor qt_col(50,50,50);
+        painter.setPen(qt_col);
         painter.drawEllipse(point.x()-r, point.y()-r, 2*r, 2*r);
     }
 
@@ -151,18 +142,63 @@ void Draw::paintEvent(QPaintEvent *event)
     for(Edge e: dt)
     {
         //Draw edge
+        QColor qt_col(192,192,192);
+        painter.setPen(qt_col);
         painter.drawLine(e.getS(), e.getE());
     }
 
     //Draw contour lines
-    QColor qt_col(0,0,0);
+    QColor qt_col(139, 69, 19);
     painter.setPen(qt_col);
-    for(Edge cl: contour_lines)
+    QFont font = painter.font();
+    font.setPointSize(10);
+    painter.setFont(font);
+    int counter = 0;
+
+    for (Edge cl : contour_lines)
     {
-        //Draw edge
+        // Draw edge
         painter.drawLine(cl.getS(), cl.getE());
+
+        // Display elevation every 15 description
+        if (counter % 15 == 0)
+        {
+            QPointF textPosition = cl.getS();
+            double elevation = cl.getS().getZ();
+
+            QString elevationText = QString::number(elevation) + " m";
+
+            // Calculate the angle
+            double angle = atan2(cl.getE().y() - cl.getS().y(), cl.getE().x() - cl.getS().x())*(180 / M_PI);
+
+            // Draw
+            painter.save();
+            painter.translate(textPosition);
+            painter.rotate(angle);
+            painter.drawText(0, 0, elevationText);
+            painter.restore();
+        }
+
+        counter++;
     }
+
 
     //End draw
     painter.end();
+}
+
+void Draw::drawPoints(std::vector<QPointF3D> &points3d)
+{
+    //Get transformation parameters
+    double trans_x = getTransX();
+    double trans_y = getTransY();
+    double scale = getScale();
+    int delta_x = getDeltaX();
+    int delta_y = getDeltaY();
+
+    //Draw vector of points
+    std::vector<QPointF3D> trans = Algorithms::transformPoints(points3d, trans_x, trans_y, scale, delta_x, delta_y);
+    Draw::setCSVPoints(trans);
+
+    repaint();
 }

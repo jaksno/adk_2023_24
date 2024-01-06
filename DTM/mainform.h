@@ -37,6 +37,8 @@ private slots:
 
     void on_actionClear_results_triggered();
 
+    void on_actionOpen_triggered();
+
 private:
     Ui::MainForm *ui;
 };

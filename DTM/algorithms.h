@@ -26,6 +26,7 @@ public:
     std::vector<Triangle> analyzeDTMAspect(const std::vector<Edge> &dt);
     double computeSlope(const QPointF3D &v1, const QPointF3D &v2, const QPointF3D &v3);
     double computeAspect(const QPointF3D &v1, const QPointF3D &v2, const QPointF3D &v3);
+    static std::vector<QPointF3D> transformPoints(std::vector<QPointF3D> &points_3d, double &trans_x, double &trans_y, double &scale, int &offset_x, int &offset_y);
 
 };
 
