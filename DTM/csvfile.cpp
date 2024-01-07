@@ -40,7 +40,7 @@ std::vector<QPointF3D> csv::getPointsFromFile(std::string &filename, double &xmi
     for(std::vector<std::string> line: res)
     {
         // Convert strings
-        x  = -std::stod(line[0]);
+        x  = std::stod(line[0]);
         y  = -std::stod(line[1]);
         z  = std::stod(line[2]);
 
