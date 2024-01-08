@@ -2,18 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ba6f5443-da00-48cc-b95c-41b4f5d4df08" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/PointAndPolygonPosition/PointAndPolygonPosition.pro.user" beforeDir="false" afterPath="$PROJECT_DIR$/PointAndPolygonPosition/PointAndPolygonPosition.pro.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PointAndPolygonPosition/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PointAndPolygonPosition/data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PointAndPolygonPosition/draw.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PointAndPolygonPosition/draw.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PointAndPolygonPosition/draw.h" beforeDir="false" afterPath="$PROJECT_DIR$/PointAndPolygonPosition/draw.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PointAndPolygonPosition/mainform.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PointAndPolygonPosition/mainform.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/draw.cpp.D7B711D6A9596ACE.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/draw.cpp.D7B711D6A9596ACE.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/draw.h.50A03715E4D948DD.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/draw.h.50A03715E4D948DD.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/mainform.cpp.80608366677C755C.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/mainform.cpp.80608366677C755C.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/PointAndPolygonPosition.exe" beforeDir="false" afterPath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/PointAndPolygonPosition.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/draw.o" beforeDir="false" afterPath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/draw.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/mainform.o" beforeDir="false" afterPath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/mainform.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/moc_draw.o" beforeDir="false" afterPath="$PROJECT_DIR$/build-PointAndPolygonPosition-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/moc_draw.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTM/DTM.pro.user" beforeDir="false" afterPath="$PROJECT_DIR$/DTM/DTM.pro.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/algorithms.cpp.B76D827DAD3A3987.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/algorithms.cpp.B76D827DAD3A3987.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/algorithms.h.96428023FE940483.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/algorithms.h.96428023FE940483.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/draw.cpp.0D178495C874D3A4.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/draw.cpp.0D178495C874D3A4.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/draw.h.93B011C461F0B39F.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/draw.h.93B011C461F0B39F.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/mainform.cpp.45FF4B1E32EE6C19.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/mainform.cpp.45FF4B1E32EE6C19.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/mainform.h.ECB8A2A2CFBB11E4.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/.cache/clangd/index/mainform.h.ECB8A2A2CFBB11E4.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/compile_commands.json" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/.qtc_clangd/compile_commands.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/Makefile.Debug" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/Makefile.Debug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/Makefile.Release" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/Makefile.Release" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/DTM.exe" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/DTM.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/algorithms.o" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/algorithms.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/draw.o" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/draw.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/mainform.o" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/mainform.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/moc_draw.o" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/moc_draw.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/moc_mainform.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/moc_mainform.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/moc_mainform.o" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/moc_mainform.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/object_script.DTM.Debug" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/debug/object_script.DTM.Debug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/release/object_script.DTM.Release" beforeDir="false" afterPath="$PROJECT_DIR$/build-DTM-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/release/object_script.DTM.Release" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,21 +31,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2X9bEBom1xpA9ac6p0W6wdhfcPp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

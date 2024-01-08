@@ -367,7 +367,6 @@ double Algorithms::computeSlope(const QPointF3D &v1, const QPointF3D &v2, const 
 double Algorithms::computeAspect(const QPointF3D &v1, const QPointF3D &v2, const QPointF3D &v3)
 {
     // Compute aspect of the triangle
-
     double ux = v2.x() - v1.x();
     double uy = v2.y() - v1.y();
     double uz = v2.getZ() - v1.getZ();

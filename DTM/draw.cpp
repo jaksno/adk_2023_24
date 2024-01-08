@@ -114,13 +114,17 @@ void Draw::paintEvent(QPaintEvent *event)
             qDebug() << aspect;
         }
 
+
+        r = std::floor(std::abs(r));
+        g = std::floor(std::abs(g));
+        b = std::floor(std::abs(b));
+
         qDebug() << std::abs(r);
         qDebug() << std::abs(g);
         qDebug() << std::abs(b);
-
         //Set color
-        QColor qt_col(std::abs(r), std::abs(g), std::abs(b));
-        qDebug() << qt_col;
+        QColor qt_col(r,g,b);
+        //qDebug() << qt_col;
         painter.setPen(qt_col);
         painter.setBrush(qt_col);
 
